@@ -23,6 +23,7 @@ class Api::V1::ClientPatientsControllerTest < Api::Test
 
     assert_equal_or_nil client_patient_data['first_name'], client_patient.first_name
     assert_equal_or_nil client_patient_data['last_name'], client_patient.last_name
+    assert_equal_or_nil client_patient_data['middle_name'], client_patient.middle_name
     # 🚅 super scaffolding will insert new fields above this line.
 
     assert_equal client_patient_data["team_id"], client_patient.team_id
@@ -83,6 +84,7 @@ class Api::V1::ClientPatientsControllerTest < Api::Test
       client_patient: {
         first_name: 'Alternative String Value',
         last_name: 'Alternative String Value',
+        middle_name: 'Alternative String Value',
         # 🚅 super scaffolding will also insert new fields above this line.
       }
     }
@@ -96,6 +98,7 @@ class Api::V1::ClientPatientsControllerTest < Api::Test
     @client_patient.reload
     assert_equal @client_patient.first_name, 'Alternative String Value'
     assert_equal @client_patient.last_name, 'Alternative String Value'
+    assert_equal @client_patient.middle_name, 'Alternative String Value'
     # 🚅 super scaffolding will additionally insert new fields above this line.
 
     # Also ensure we can't do that same action as another user.

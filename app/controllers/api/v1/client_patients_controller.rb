@@ -46,6 +46,7 @@ if defined?(Api::V1::ApplicationController)
           *permitted_fields,
           :first_name,
           :last_name,
+          :middle_name,
           # 🚅 super scaffolding will insert new fields above this line.
           *permitted_arrays,
           # 🚅 super scaffolding will insert new arrays above this line.
