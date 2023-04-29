@@ -1,0 +1,8 @@
+<% client_patient ||= @client_patient %>
+<% team ||= @team || client_patient&.team %>
+<%= render 'account/teams/breadcrumbs', team: team %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, team, :client_patients] %>
+<% if client_patient&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: client_patient.label_string, url: [:account, client_patient] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'client_patients' %>

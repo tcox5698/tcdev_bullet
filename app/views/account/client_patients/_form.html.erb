@@ -1,0 +1,18 @@
+<% cancel_path ||= client_patient.persisted? ? [:account, client_patient] : [:account, @team, :client_patients] %>
+
+<%= form_with model: client_patient, url: (client_patient.persisted? ? [:account, client_patient] : [:account, @team, :client_patients]), local: true, class: 'form' do |form| %>
+  <%= render "shared/limits/form", form: form, cancel_path: cancel_path do %>
+    <%= render 'account/shared/forms/errors', form: form %>
+
+    <% with_field_settings form: form do %>
+      <%= render 'shared/fields/text_field', method: :first_name, options: {autofocus: true} %>
+      <%= render 'shared/fields/text_field', method: :last_name %>
+      <%# 🚅 super scaffolding will insert new fields above this line. %>
+    <% end %>
+
+    <div class="buttons">
+      <%= form.submit (form.object.persisted? ? t('.buttons.update') : t('.buttons.create')), class: "button" %>
+      <%= link_to t('global.buttons.cancel'), cancel_path, class: "button-secondary" %>
+    </div>
+  <% end %>
+<% end %>

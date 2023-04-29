@@ -1,0 +1,94 @@
+en:
+  client_patients: &client_patients
+    label: &label Client Patients
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: ti ti-arrow-circle-right
+    buttons: &buttons
+      new: Add New Client Patient
+      create: Create Client Patient
+      edit: Edit Client Patient
+      update: Update Client Patient
+      destroy: Remove Client Patient
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{client_patient_name}? This will also remove any child resources and can't be undone.
+    fields: &fields
+      id:
+        heading: Client Patient ID
+      team_id:
+        heading: Team ID
+      first_name:
+        _: &first_name First Name
+        label: *first_name
+        heading: *first_name
+      last_name:
+        _: &last_name Last Name
+        label: *last_name
+        heading: *last_name
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Client Patients"
+      index: "List Client Patients"
+      create: "Add a New Client Patient"
+      member_actions: "Actions for an Individual Client Patient"
+      show: "Retrieve a Client Patient"
+      update: "Update a Client Patient"
+      destroy: "Delete a Client Patient"
+      fields: *fields
+    index:
+      section: "%{teams_possessive} Client Patients"
+      contexts:
+        team:
+          header: Client Patients
+          description: Below is a list of Client Patients that have been added for %{team_name}.
+          description_empty: No Client Patients have been added for %{team_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{client_patient_name}"
+      header: Client Patient Details
+      description: Below are the details we have for %{client_patient_name}.
+      manage_description: You'll also find options for updating these details or removing %{client_patient_name} from %{team_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Client Patient for %{team_name}"
+      header: New Client Patient Details
+      description: Please provide the details of the new Client Patient you'd like to add to %{team_name}.
+      form: *form
+    edit:
+      section: "%{client_patient_name}"
+      header: Edit Client Patient Details
+      description: You can update the details or settings for %{client_patient_name} below.
+      form: *form
+    notifications:
+      created: Client Patient was successfully created.
+      updated: Client Patient was successfully updated.
+      destroyed: Client Patient was successfully destroyed.
+  account:
+    client_patients: *client_patients
+  activerecord:
+    attributes:
+      client_patient:
+        first_name: *first_name
+        last_name: *last_name
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at
