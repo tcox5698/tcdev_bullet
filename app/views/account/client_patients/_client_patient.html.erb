@@ -9,6 +9,7 @@
     <%= render "shared/tables/checkbox", object: client_patient %>
     <td><%= render 'shared/attributes/text', attribute: :first_name, url: [:account, client_patient] %></td>
     <td><%= render 'shared/attributes/text', attribute: :last_name %></td>
+    <td><%= render 'shared/attributes/text', attribute: :middle_name %></td>
     <%# 🚅 super scaffolding will insert new fields above this line. %>
     <td><%= render 'shared/attributes/date_and_time', attribute: :created_at %></td>
     <td class="buttons">

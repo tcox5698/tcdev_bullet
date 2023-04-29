@@ -31,6 +31,10 @@ en:
         _: &last_name Last Name
         label: *last_name
         heading: *last_name
+      middle_name:
+        _: &middle_name Middle Name
+        label: *middle_name
+        heading: *middle_name
       # 🚅 super scaffolding will insert new fields above this line.
       created_at:
         _: &created_at Added
@@ -89,6 +93,7 @@ en:
       client_patient:
         first_name: *first_name
         last_name: *last_name
+        middle_name: *middle_name
         # 🚅 super scaffolding will insert new activerecord attributes above this line.
         created_at: *created_at
         updated_at: *updated_at
